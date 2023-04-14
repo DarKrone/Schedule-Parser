@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ParserTest
 {
-    internal class GetRequest
+    internal class PostRequest
     {
         HttpWebRequest _request;
         string _address;
@@ -17,11 +17,13 @@ namespace ParserTest
         public string Response { get; set; }
         public string Accept { get; set; }
         public string Host { get; set; }
+        public string ContentType { get; set; }
+        public string Data { get; set; }
         public WebProxy Proxy { get; set; }
 
 
 
-        public GetRequest(string address)
+        public PostRequest(string address)
         {
             _address= address;
             Headers = new Dictionary<string, string>();
@@ -30,7 +32,7 @@ namespace ParserTest
         public void Run()
         {
             _request = (HttpWebRequest)WebRequest.Create(_address);
-            _request.Method = "GET";
+            _request.Method = "Post";
             
             try
             {
@@ -44,11 +46,18 @@ namespace ParserTest
         public void Run(CookieContainer cookieContainer)
         {
             _request = (HttpWebRequest)WebRequest.Create(_address);
-            _request.Method = "GET";
+            _request.Method = "Post";
             _request.CookieContainer = cookieContainer;
             _request.Proxy = Proxy;
             _request.Accept = Accept;
             _request.Host = Host;
+            _request.ContentType = ContentType;
+
+            byte[] sentData = Encoding.UTF8.GetBytes(Data);
+            _request.ContentLength = sentData.Length;
+            Stream sendStream = _request.GetRequestStream();
+            sendStream.Write(sentData, 0, sentData.Length);
+            sendStream.Close();
 
             foreach(var pair in Headers)
             {
