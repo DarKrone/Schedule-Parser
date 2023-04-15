@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ParserTest
 {
-    internal class PostRequest
+    public class PostRequest
     {
         HttpWebRequest _request;
         string _address;
