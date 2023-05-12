@@ -48,7 +48,9 @@ namespace ParserTest
             var strStart = response.IndexOf(dateToday.ToString("dd.MM.yyyy"));
             var strEnd = response.IndexOf(dateTomorrow.ToString("dd.MM.yyyy"));
             var DayString = response.Substring(strStart + 23, strEnd - strStart);
+            var dayOfWeekString = response.Substring(strStart, 23);
             var countPair = Regex.Matches(DayString, "z1").Count;
+            Console.WriteLine(GetDayOfWeek(dayOfWeekString));
 
             for (int i = 0;i < 9; i++)
             {
@@ -77,6 +79,14 @@ namespace ParserTest
             var indexLeftTd = str.IndexOf("<TD");
             var indexRightTd = str.IndexOf("/TD>") + 4;
             var subString = str.Substring(indexLeftTd, indexRightTd);
+            return subString;
+        }
+
+        static string GetDayOfWeek(string str)
+        {
+            var indexLeftTd = str.IndexOf(">");
+            var indexRightTd = str.IndexOf("</");
+            var subString = str.Substring(indexLeftTd + 1, indexRightTd - indexLeftTd - 1);
             return subString;
         }
 

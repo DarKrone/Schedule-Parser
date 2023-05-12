@@ -1,0 +1,10 @@
+C:\Users\all\Downloads\ParserTest-master\ParserTest\bin\Debug\ParserTest.exe.config
+C:\Users\all\Downloads\ParserTest-master\ParserTest\bin\Debug\ParserTest.exe
+C:\Users\all\Downloads\ParserTest-master\ParserTest\bin\Debug\ParserTest.pdb
+C:\Users\all\Downloads\ParserTest-master\ParserTest\bin\Debug\Support.dll
+C:\Users\all\Downloads\ParserTest-master\ParserTest\bin\Debug\Support.pdb
+C:\Users\all\Downloads\ParserTest-master\ParserTest\obj\Debug\ParserTest.csprojAssemblyReference.cache
+C:\Users\all\Downloads\ParserTest-master\ParserTest\obj\Debug\ParserTest.csproj.CoreCompileInputs.cache
+C:\Users\all\Downloads\ParserTest-master\ParserTest\obj\Debug\ParserTest.csproj.CopyComplete
+C:\Users\all\Downloads\ParserTest-master\ParserTest\obj\Debug\ParserTest.exe
+C:\Users\all\Downloads\ParserTest-master\ParserTest\obj\Debug\ParserTest.pdb
