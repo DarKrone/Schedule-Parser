@@ -8,3 +8,14 @@ C:\Users\all\Downloads\ParserTest-master\ParserTest\obj\Debug\ParserTest.csproj.
 C:\Users\all\Downloads\ParserTest-master\ParserTest\obj\Debug\ParserTest.csproj.CopyComplete
 C:\Users\all\Downloads\ParserTest-master\ParserTest\obj\Debug\ParserTest.exe
 C:\Users\all\Downloads\ParserTest-master\ParserTest\obj\Debug\ParserTest.pdb
+D:\Visual Studio Project\ParserTest\ParserTest\bin\Debug\ParserTest.exe.config
+D:\Visual Studio Project\ParserTest\ParserTest\bin\Debug\ParserTest.exe
+D:\Visual Studio Project\ParserTest\ParserTest\bin\Debug\ParserTest.pdb
+D:\Visual Studio Project\ParserTest\ParserTest\bin\Debug\Support.dll
+D:\Visual Studio Project\ParserTest\ParserTest\bin\Debug\Support.pdb
+D:\Visual Studio Project\ParserTest\ParserTest\obj\Debug\ParserTest.csproj.AssemblyReference.cache
+D:\Visual Studio Project\ParserTest\ParserTest\obj\Debug\ParserTest.csproj.SuggestedBindingRedirects.cache
+D:\Visual Studio Project\ParserTest\ParserTest\obj\Debug\ParserTest.csproj.CoreCompileInputs.cache
+D:\Visual Studio Project\ParserTest\ParserTest\obj\Debug\ParserTest.csproj.CopyComplete
+D:\Visual Studio Project\ParserTest\ParserTest\obj\Debug\ParserTest.exe
+D:\Visual Studio Project\ParserTest\ParserTest\obj\Debug\ParserTest.pdb
