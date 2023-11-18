@@ -4,3 +4,9 @@ C:\Users\all\Downloads\ParserTest-master\Support\obj\Debug\Support.csprojAssembl
 C:\Users\all\Downloads\ParserTest-master\Support\obj\Debug\Support.csproj.CoreCompileInputs.cache
 C:\Users\all\Downloads\ParserTest-master\Support\obj\Debug\Support.dll
 C:\Users\all\Downloads\ParserTest-master\Support\obj\Debug\Support.pdb
+D:\Visual Studio Project\ParserTest\Support\bin\Debug\Support.dll
+D:\Visual Studio Project\ParserTest\Support\bin\Debug\Support.pdb
+D:\Visual Studio Project\ParserTest\Support\obj\Debug\Support.csproj.AssemblyReference.cache
+D:\Visual Studio Project\ParserTest\Support\obj\Debug\Support.csproj.CoreCompileInputs.cache
+D:\Visual Studio Project\ParserTest\Support\obj\Debug\Support.dll
+D:\Visual Studio Project\ParserTest\Support\obj\Debug\Support.pdb
