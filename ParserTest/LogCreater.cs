@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ParserTest
 {
-    internal class LogCreater
+    public class LogCreater
     {
-        public void CreateLog(Exception ex, string path)
+        public static void CreateLog(Exception ex, string path)
         {
             using (StreamWriter sw = new StreamWriter(path, true)) 
             {

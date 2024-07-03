@@ -13,19 +13,19 @@ namespace ParserTest
         static void Main(string[] args)
         {
             //var url = "http://techn.sstu.ru/new/RaspSPO/www_2semestr/cg135.htm";
-            var url = "http://techn.sstu.ru/new/RaspSPO/www-2023/cg87.htm";
-            //GetScheduleForWeekConsole(url);
-            GetScheduleForWeekInFile(url);
+            var url = "http://techn.sstu.ru/new/RaspSPO/www-2024/cg75.htm";
+            GetScheduleForWeekConsole(url);
+            //GetScheduleForWeekInFile(url);
         }
 
         static void GetScheduleForWeekInFile(string url, string path = "ScheduleForWeek.txt")
         {
             try
             {
-                var request = new GetRequest(url);
+                GetRequest request = new GetRequest(url);
                 request.Run();
-                var response = request.Response;
-                var dateToday = DateTime.Today;
+                string response = request.Response;
+                DateTime dateToday = DateTime.Today;
                 //var dateToday = new DateTime(2023,06,26);
                 DateTime dateIterate = dateToday;
                 string scheduleForWeek = "";
@@ -44,8 +44,7 @@ namespace ParserTest
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                LogCreater logs = new LogCreater();
-                logs.CreateLog(ex, "log.txt");
+                LogCreater.CreateLog(ex, "log.txt");
             }
 
         }
@@ -55,11 +54,11 @@ namespace ParserTest
         {
             try
             {
-                var request = new GetRequest(url);
+                GetRequest request = new GetRequest(url);
                 request.Run();
-                var response = request.Response;
+                string response = request.Response;
                 //var dateToday = DateTime.Today;
-                var dateToday = new DateTime(2023, 06, 26);
+                DateTime dateToday = new DateTime(2024, 06, 26); // такая дата т.к. расписание не обновляли и нынешней даты нету
                 DateTime dateIterate = dateToday;
                 for (int i = 1; i <= 7; i++)
                 {
@@ -72,100 +71,90 @@ namespace ParserTest
             catch (Exception ex) 
             { 
                 Console.WriteLine(ex.Message);
-                LogCreater logs = new LogCreater();
-                logs.CreateLog(ex, "log.txt");
+                LogCreater.CreateLog(ex, "log.txt");
             }
             
         }
 
-        //static void GetScheduleForToday(string url)
-        //{
-        //    var request = new GetRequest(url);
-        //    request.Run();
-        //    var response = request.Response;
-        //    var dateToday = DateTime.Today;
-        //    Console.WriteLine(dateToday.ToString("dd.MM.yyyy"));
-        //    GetScheduleForDay(response, dateToday);
-        //}
         static string GetScheduleForDay(string response, DateTime dateToday)
         {
-            var dateTomorrow = dateToday.AddDays(1);
-            var strStart = response.IndexOf(dateToday.ToString("dd.MM.yyyy"));
-            var strEnd = response.IndexOf(dateTomorrow.ToString("dd.MM.yyyy"));
-            var DayString = response.Substring(strStart + 23, strEnd - strStart);
-            var dayOfWeekString = response.Substring(strStart, 23);
-            var countPair = Regex.Matches(DayString, "z1").Count;
+            DateTime dateTomorrow = dateToday.AddDays(1);
+            int strStart = response.IndexOf(dateToday.ToString("dd.MM.yyyy"));
+            int strEndIndex = response.IndexOf(dateTomorrow.ToString("dd.MM.yyyy"));
+            string dayString = response.Substring(strStart + 23, strEndIndex - strStart);
+            string dayOfWeekString = response.Substring(strStart, 23);
+            int countPair = Regex.Matches(dayString, "z1").Count;
             string scheduleForDay = "";
             scheduleForDay += GetDayOfWeek(dayOfWeekString) + "\n";
 
             for (int i = 0;i < 7; i++)
             {
-                var schedule = ""; // тут хранятся данные только одной пары
-                var tdString = GetNextSubstring(DayString);
-                DayString = DayString.Substring(DayString.IndexOf(tdString) + tdString.Length);
-                schedule += GetTime(tdString) + " | ";
+                string onePair = ""; // тут хранятся данные только одной пары
+                string tdString = GetNextDaySubstring(dayString);
+                dayString = dayString.Substring(dayString.IndexOf(tdString) + tdString.Length);
+                onePair += GetPairTime(tdString) + " | ";
 
-                tdString = GetNextSubstring(DayString);
-                DayString = DayString.Substring(DayString.IndexOf(tdString) + tdString.Length + 9);
-                if (tdString.Contains("nul"))
+                tdString = GetNextDaySubstring(dayString);
+                dayString = dayString.Substring(dayString.IndexOf(tdString) + tdString.Length + 9);
+                if (tdString.Contains("nul")) // проверка на отсутствие пары
                 {
                     continue;
                 }
-                schedule += GetPair(tdString);
-                schedule += " | " + GetCab(tdString);
-                schedule += " | " + GetTeacher(tdString);
+                onePair += GetPair(tdString);
+                onePair += " | " + GetCab(tdString);
+                onePair += " | " + GetTeacher(tdString);
 
-                scheduleForDay += schedule + "\n";
+                scheduleForDay += onePair + "\n";
             }
             
             if (countPair == 0) scheduleForDay += "Отдых\n";
             return scheduleForDay;
         }
 
-        static string GetNextSubstring(string str) // возвращает разбитый на блок учебный день, например первую пару
+        static string GetNextDaySubstring(string str) // возвращает разбитый на блок учебный день, например первую пару
         {
-            var indexLeftTd = str.IndexOf("<TD");
-            var indexRightTd = str.IndexOf("/TD>") + 4;
-            var subString = str.Substring(indexLeftTd, indexRightTd);
-            return subString;
+            int indexLeftTd = str.IndexOf("<TD");
+            int indexRightTd = str.IndexOf("/TD>") + 4;
+            string daySubstring = str.Substring(indexLeftTd, indexRightTd);
+            return daySubstring;
         }
 
         static string GetDayOfWeek(string str) // ищет и возвращает день недели, например "Сб-2"
         {
-            var indexLeftTd = str.IndexOf(">");
-            var indexRightTd = str.IndexOf("</");
-            var subString = str.Substring(indexLeftTd + 1, indexRightTd - indexLeftTd - 1);
-            return subString;
+            int indexLeftTd = str.IndexOf(">");
+            int indexRightTd = str.IndexOf("</");
+            string dayOfWeek = str.Substring(indexLeftTd + 1, indexRightTd - indexLeftTd - 1);
+            return dayOfWeek;
         }
 
-        static string GetTime(string response) // возвращает время пары, если пары нету, то дальше это учтётся
+        static string GetPairTime(string response) // возвращает время пары, если пары нету, то дальше это учтётся
         {
-            var strStart = response.IndexOf("<br>") + 4;
-            var strEnd = response.IndexOf('<', strStart);
-            var pair = response.Substring(strStart, strEnd - strStart);
-            return pair;
+            int strStart = response.IndexOf("<br>") + 4;
+            int strEnd = response.IndexOf('<', strStart);
+            string pairTime = response.Substring(strStart, strEnd - strStart);
+            return pairTime;
         }
         static string GetPair(string response) // возвращает название пары 
         {
-            var strStart = response.IndexOf("Журнал занятий\">") + 16;
-            var strEnd = response.IndexOf('<', strStart);
-            var pair = response.Substring(strStart, strEnd - strStart);
+            int strStart = response.IndexOf("Журнал занятий\">") + 16;
+            int strEnd = response.IndexOf('<', strStart);
+            string pair = response.Substring(strStart, strEnd - strStart);
             return pair;
         }
 
         static string GetCab(string response) // возвращает кабинет пары
         {
-            var strStart = response.IndexOf("Расписание аудитории\">") + 22;
-            var strEnd = response.IndexOf('<', strStart);
-            var cab = response.Substring(strStart, strEnd - strStart);
+            int strStart = response.IndexOf("Расписание аудитории\">") + 22;
+            int strEnd = response.IndexOf('<', strStart);
+            string cab = response.Substring(strStart, strEnd - strStart);
             return cab;
         }
 
         static string GetTeacher(string response) // возвращает преподавателя
         {
-            var strStart = response.IndexOf("Расписание преподавателя\">") + 26;
-            var strEnd = response.IndexOf('<', strStart);
-            var teacher = response.Substring(strStart, strEnd - strStart);
+            int strStart = response.IndexOf("Расписание преподавателя\">") + 26;
+            int strEnd = response.IndexOf('<', strStart);
+            string teacher = response.Substring(strStart, strEnd - strStart);
             return teacher;
         }
     }

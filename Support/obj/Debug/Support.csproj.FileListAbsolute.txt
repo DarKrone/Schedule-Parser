@@ -10,3 +10,9 @@ D:\Visual Studio Project\ParserTest\Support\obj\Debug\Support.csproj.AssemblyRef
 D:\Visual Studio Project\ParserTest\Support\obj\Debug\Support.csproj.CoreCompileInputs.cache
 D:\Visual Studio Project\ParserTest\Support\obj\Debug\Support.dll
 D:\Visual Studio Project\ParserTest\Support\obj\Debug\Support.pdb
+D:\VS Projects\ParserTest\Support\bin\Debug\Support.dll
+D:\VS Projects\ParserTest\Support\bin\Debug\Support.pdb
+D:\VS Projects\ParserTest\Support\obj\Debug\Support.csproj.AssemblyReference.cache
+D:\VS Projects\ParserTest\Support\obj\Debug\Support.csproj.CoreCompileInputs.cache
+D:\VS Projects\ParserTest\Support\obj\Debug\Support.dll
+D:\VS Projects\ParserTest\Support\obj\Debug\Support.pdb

@@ -19,3 +19,23 @@ D:\Visual Studio Project\ParserTest\ParserTest\obj\Debug\ParserTest.csproj.CoreC
 D:\Visual Studio Project\ParserTest\ParserTest\obj\Debug\ParserTest.csproj.CopyComplete
 D:\Visual Studio Project\ParserTest\ParserTest\obj\Debug\ParserTest.exe
 D:\Visual Studio Project\ParserTest\ParserTest\obj\Debug\ParserTest.pdb
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\ParserTest.exe.config
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\ParserTest.exe
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\ParserTest.pdb
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\Newtonsoft.Json.dll
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\Support.dll
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\System.ComponentModel.Annotations.dll
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\Telegram.Bot.dll
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\Support.pdb
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\Newtonsoft.Json.xml
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\Telegram.Bot.pdb
+D:\VS Projects\ParserTest\ParserTest\bin\Debug\Telegram.Bot.xml
+D:\VS Projects\ParserTest\ParserTest\obj\Debug\ParserTest.csproj.AssemblyReference.cache
+D:\VS Projects\ParserTest\ParserTest\obj\Debug\ParserTest.csproj.CoreCompileInputs.cache
+D:\VS Projects\ParserTest\ParserTest\obj\Debug\ParserTest.csproj.Up2Date
+D:\VS Projects\ParserTest\ParserTest\obj\Debug\ParserTest.exe
+D:\VS Projects\ParserTest\ParserTest\obj\Debug\ParserTest.pdb
